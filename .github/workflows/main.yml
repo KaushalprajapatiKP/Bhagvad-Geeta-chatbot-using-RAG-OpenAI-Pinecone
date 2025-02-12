@@ -1,14 +1,23 @@
-2s
-Run git push --force ***huggingface.co/spaces/kaushalp-0612/BhagvadGeeta_Chatbot_using_Rag main
-remote: -------------------------------------------------------------------------        
-remote: Your push was rejected because it contains binary files.        
-remote: Please use https://git-lfs.github.com/ to store binary files.        
-remote: See also: https://hf.co/docs/hub/repositories-getting-started#terminal        
-remote:         
-remote: Offending files:        
-remote:   - Project Report.pdf (ref: refs/heads/main)        
-remote: -------------------------------------------------------------------------        
-To https://huggingface.co/spaces/kaushalp-0612/BhagvadGeeta_Chatbot_using_Rag
- ! [remote rejected] main -> main (pre-receive hook declined)
-error: failed to push some refs to 'https://huggingface.co/spaces/kaushalp-0612/BhagvadGeeta_Chatbot_using_Rag'
-Error: Process completed with exit code 1.
+name: Sync to Hugging Face hub
+on:
+  push:
+    branches: [main]
+
+  # to run this workflow manually from the Actions tab 
+  workflow_dispatch:
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: false
+
+      - name: Push to hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: git push --force https://kaushalp-0612:$HF_TOKEN@huggingface.co/spaces/kaushalp-0612/BhagvadGeeta_Chatbot_using_Rag main
+
+            
