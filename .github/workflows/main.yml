@@ -1,0 +1,14 @@
+2s
+Run git push --force ***huggingface.co/spaces/kaushalp-0612/BhagvadGeeta_Chatbot_using_Rag main
+remote: -------------------------------------------------------------------------        
+remote: Your push was rejected because it contains binary files.        
+remote: Please use https://git-lfs.github.com/ to store binary files.        
+remote: See also: https://hf.co/docs/hub/repositories-getting-started#terminal        
+remote:         
+remote: Offending files:        
+remote:   - Project Report.pdf (ref: refs/heads/main)        
+remote: -------------------------------------------------------------------------        
+To https://huggingface.co/spaces/kaushalp-0612/BhagvadGeeta_Chatbot_using_Rag
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://huggingface.co/spaces/kaushalp-0612/BhagvadGeeta_Chatbot_using_Rag'
+Error: Process completed with exit code 1.
